@@ -2,11 +2,12 @@
 
 ## 🎪 Opening Hook (2 minutes)
 **Start with a relatable analogy:**
-> "Imagine you're Netflix trying to recommend the perfect show. You have millions of titles and need to find what matches someone who loved 'Stranger Things.' How do you measure similarity between completely different shows? This is exactly what embeddings solve in AI!"
+> We are all doing SEO. I'm not sure how many of you have every realize this truth that, in order for a computer or algorightm or system to rank (or sort) a list, it has to have a score for each item in the list. 
 
-We are all doing SEO. I'm not sure how many of you have ever realized this fundamental truth: in order for a computer, algorithm, or system to rank (or sort) a list, it has to have a score for each item in the list. 
+> We've been talking about sementic relevance, understand the query intent, lexical meaning, and many linguistic jargon. But in the end, at the computer side, we need to assign each a webpage a score to a webpage, to be able to sort it. Even "relevance is 非嚴格定義, at computer side we need a score to do the sorting"
 
-We've been talking about semantic relevance, understanding query intent, lexical meaning... but how does Google actually *measure* these concepts? 
+> In today's talk, I want to dive a little bit into this concept. When i say a little bit I really mean tiny bits of the entire AI world. The actual application, or how Google work, is a lot more complex than this. 
+
 
 **Quick audience check:**
 - "Who here has used ChatGPT and wondered how it 'understands' your questions?"
@@ -16,11 +17,19 @@ We've been talking about semantic relevance, understanding query intent, lexical
 
 ### The Magic Behind Understanding
 **Simple explanation:**
+> Before we get into embedding, i want to quickly clarify because most people nowadays when it comes to AI, we are thinking of generative ai models like chatgpt, gemini, or even image generation model etc. 
+
+> But there are actually another branch of AI models, that's called embedding model. And there's actually one that's we are all very familiar with in the SEO industry: BERT. 
+
+> Big distinquish here: Generative model generate text (tokens) based on given inputs; Embedding models generates a numeric representative for a given inputs. 
+
 > "Embeddings are like GPS coordinates for words and concepts - they turn messy human language into precise mathematical points in space."
+
+> Next on I want to show you what does that mean when I say convert text into a numeric representative and how similarity is calculated. 
 
 **Demo with your notebook:** 
 - Show the "cat" embedding: `[0.025, -0.023, -0.016...]` 
-- **Key insight:** "This isn't random! Each of these 1,536 numbers captures different aspects of 'cat' - but not in ways we can easily interpret. The magic is that similar concepts end up with similar number patterns, even though we can't say exactly what each dimension represents."
+- **Key insight:** "This isn't random! Each of these 1,536 numbers captures something about 'cat' - maybe dimension 245 represents 'furriness' and dimension 891 represents 'domestication'"
 
 ### The SEO Connection
 **Real talk for your audience:**
@@ -38,8 +47,8 @@ We've been talking about semantic relevance, understanding query intent, lexical
 
 **Walk through your visualization:**
 1. Point out animal clusters (dogs, cats, elephants grouping together)
-2. Show food items clustering  
-3. **Interactive moment:** "What do you notice about weather terms? And why do you think occupations cluster separately?"
+2. Show food items clustering
+3. **Interactive moment:** "What do you notice about weather terms?"
 
 **SEO insight:**
 > "This is literally how Google's algorithm sees your content! Related topics naturally cluster together in embedding space."
@@ -47,7 +56,7 @@ We've been talking about semantic relevance, understanding query intent, lexical
 ## 🎯 Similarity Scoring (5 minutes)
 
 ### The Koala-Kangaroo Test
-**Show your results:** `Similarity: 0.648` (where 1.0 = identical, 0.0 = completely unrelated)
+**Show your results:** `Similarity: 0.648`
 > "Both Australian animals, both marsupials - the AI figured this out without being explicitly taught! This is why modern search understands user intent."
 
 ### The SEO Question Demo
@@ -77,7 +86,6 @@ We've been talking about semantic relevance, understanding query intent, lexical
 **Show the meditation query example:**
 - Query: "What are the health benefits of meditation?"
 - Top result: "Some forms of meditation emphasize compassion and kindness, aiming to improve emotional well-being" (Score: 0.573)
-- **Note:** RAG found this as most relevant among 10 documents, even though it doesn't explicitly mention "health benefits"!
 
 **SEO applications:**
 > "Imagine this for your FAQ pages! Instead of rigid Q&A matching, you can answer variations of questions you never thought to include."
@@ -98,10 +106,10 @@ We've been talking about semantic relevance, understanding query intent, lexical
 
 ### Google's Secret Sauce
 **Connect the dots:**
-> "Google Discover, 'People Also Ask,' Featured Snippets, and semantic search improvements? All powered by embeddings understanding content relationships!"
+> "Google Discover, 'People Also Ask,' and semantic search improvements? All powered by embeddings understanding content relationships!"
 
 **Fun example:**
-> "Ever notice how searching 'best pizza NYC' might show results for 'top Italian restaurants Manhattan'? That's embeddings at work! Google knows these concepts are related even without exact keyword matches."
+> "Ever notice how searching 'best pizza NYC' might show results for 'top Italian restaurants Manhattan'? That's embeddings at work!"
 
 ## 🎪 Fun Demos & Audience Participation (7 minutes)
 
@@ -114,9 +122,8 @@ We've been talking about semantic relevance, understanding query intent, lexical
 **Get audience involved:**
 
 1. **"Guess the Similarity Game":**
-   - "Pizza" vs "Italian food" - what score do you think? (Hint: remember 0.648 for koala-kangaroo)"
+   - "Pizza" vs "Italian food" - what score do you think?"
    - "SEO audit" vs "website optimization review" - similar or different?"
-   - **Reveal answers and explain why the scores make sense**
 
 2. **"Category Clustering Challenge":**
    - Show mixed words, ask audience to predict which will cluster together
@@ -138,10 +145,9 @@ We've been talking about semantic relevance, understanding query intent, lexical
 ### Action Items for Your Team
 **Practical next steps:**
 - Start thinking in topics and themes, not just keywords
-- Consider user intent variations when creating content  
+- Consider user intent variations when creating content
 - Use semantic analysis tools (many use embeddings under the hood!)
 - Test content against user questions, not just target keywords
-- **Try this today:** Take your FAQ page and ask "What are 5 different ways someone might ask this same question?" - that's semantic thinking!
 
 ### The Mic Drop Moment
 > "Remember the Netflix analogy? You're not just competing for keywords anymore - you're competing in a multidimensional space where AI understands context, intent, and semantic relationships. The question isn't whether you'll adapt to this reality... it's whether you'll do it before your competitors!"
