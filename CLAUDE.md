@@ -9,10 +9,17 @@ overdose-rag/
 ├── OD_RAG.ipynb           # Main Google Colab notebook for presentation
 ├── rag.ipynb              # Original working notebook
 ├── speaker_notes.md       # Comprehensive presentation notes
+├── requirements.txt       # Python dependencies for local setup
 ├── static/
-│   ├── embedding vs generative models.jpg  # Visual comparison diagram
-│   └── quality_rater.txt  # Google Quality Rater Guidelines (sample text)
-├── 100_embeddings.csv     # Pre-computed embeddings dataset
+│   ├── embedding vs generative models.jpg  # Generative vs embedding visual
+│   ├── vectorization example.png          # Text-to-vector demonstration
+│   ├── king queen.png                     # Famous vector arithmetic example
+│   ├── cosine similarity.png              # Similarity calculation diagram
+│   ├── chunk_embedding.png                # Chunking process visualization
+│   ├── rag.png                           # Complete RAG pipeline diagram
+│   ├── 100_embeddings.csv                # Pre-computed embeddings dataset
+│   ├── 100_words.csv                     # Word categories dataset
+│   └── quality_rater.txt                 # Google Quality Rater Guidelines
 └── CLAUDE.md              # This documentation file
 ```
 
@@ -24,14 +31,14 @@ overdose-rag/
 **Colab Link**: https://colab.research.google.com/github/DarrenHuangTW/od_rag_knowledge_share/blob/main/OD_RAG.ipynb
 
 **Sections**:
-- **Opening**: Generative vs Embedding models explanation with visual diagram
-- **Vectorization**: Text-to-numbers conversion using OpenAI's text-embedding-3-small
-- **Visualization**: 2D/3D t-SNE plots showing semantic clustering
-- **Similarity**: Cosine similarity calculations between concepts
-- **Query vs Document**: Ranking documents by relevance
-- **Chunking**: Text preprocessing for RAG systems
-- **RAG**: Complete retrieval-augmented generation workflow
-- **Discussion**: Advanced topics and considerations
+- **Opening**: Generative vs Embedding models with visual comparison diagram
+- **From Text to Numbers**: How AI converts language into mathematical coordinates (with examples)
+- **2D/3D Visualization**: t-SNE plots showing semantic clustering by category
+- **Measuring Similarity**: King-Queen vector arithmetic + cosine similarity concepts
+- **From Words to Everything**: Embeddings at scale (sentences, documents, images, audio)
+- **Breaking Down Large Content**: Chunking strategies and context window limitations
+- **RAG Pipeline**: Complete retrieval-augmented generation workflow with real Google data
+- **Discussion**: Real-world complexities including hybrid search strategies
 
 ### 2. Technical Implementation
 
@@ -49,8 +56,9 @@ overdose-rag/
 
 **RAG Query Example**:
 - Query: "how many Search Quality Raters are there?"
-- Answer: Found "~16,000 external Search Quality Raters" from document chunks
-- Top similarity: 0.754 (chunk about rater process)
+- Retrieved: 3 most relevant chunks from Google Quality Rater Guidelines
+- AI Generated Answer: "There are approximately 16,000 external Search Quality Raters."
+- Demonstrates: Complete pipeline from document → chunks → vector search → LLM generation
 
 **Visualization Insights**:
 - Animal words cluster together (cats, dogs, elephants)
@@ -87,19 +95,22 @@ overdose-rag/
 
 ### Dependencies
 ```python
-openai==1.x          # OpenAI API for embeddings
-chromadb             # Vector database
-plotly               # 3D visualizations
-matplotlib           # 2D plotting
-scikit-learn         # t-SNE dimensionality reduction
-pandas               # Data manipulation
-numpy                # Numerical computations
+openai>=1.0.0        # OpenAI API for embeddings and chat completion
+chromadb>=0.4.0      # Vector database for RAG implementation
+plotly>=5.15.0       # Interactive 3D visualizations
+matplotlib>=3.6.0    # 2D plotting and static visualizations
+scikit-learn>=1.3.0  # t-SNE dimensionality reduction
+pandas>=1.5.0        # Data manipulation and CSV handling
+numpy>=1.24.0        # Numerical computations
+requests>=2.28.0     # HTTP requests for data downloads
+nbformat>=4.2.0      # Jupyter notebook format compatibility
 ```
 
 ### Data Sources
-- **100_embeddings.csv**: Pre-computed embeddings from Google Drive
-- **Quality Rater Guidelines**: Downloaded from Google Drive as sample document
-- **Categories**: Animal, Food, Occupation, Weather (25 words each)
+- **100_embeddings.csv**: Pre-computed embeddings hosted on Google Drive
+- **100_words.csv**: Word categories dataset with Animal, Food, Occupation, Weather (25 each)
+- **Quality Rater Guidelines**: Real Google document downloaded from Google Drive
+- **Visual Assets**: 6 custom diagrams explaining concepts and processes
 
 ### Presentation Flow
 1. **Concept Introduction** (5 min): Generative vs Embedding models
@@ -114,18 +125,28 @@ numpy                # Numerical computations
 - From keyword matching to semantic understanding
 - From exact matches to conceptual relationships
 - From guessing intent to measuring similarity
+- From pure semantic search to hybrid approaches
 
 **Practical Applications**:
 - Content optimization using semantic analysis
 - FAQ systems that understand question variations
 - Competitor analysis through content vectorization
 - User intent mapping via embedding similarities
+- Product search requiring exact + semantic matching
 
-**Future Considerations**:
-- Multilingual and multimodal embeddings
-- Domain-specific embedding models
-- Efficient similarity search at scale
-- Query transformation and contextualization
+**Real-World Complexities Covered**:
+- Document processing challenges (PDFs, tables, layouts)
+- Chunking strategy optimization techniques
+- Embedding model selection for different use cases
+- Scalability solutions for millions of documents
+- Query transformation and enhancement methods
+- Hybrid search: When keyword search beats semantic search
+
+**Critical Insights**:
+- Semantic search isn't always better than keyword search
+- SKU/product queries need hybrid approaches to avoid wrong answers
+- Production RAG systems require sophisticated orchestration
+- Context windows apply to both generative and embedding models
 
 ## Success Metrics
 - Team understands embedding vs generative AI distinction
